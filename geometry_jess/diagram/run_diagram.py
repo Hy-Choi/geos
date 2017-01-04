@@ -42,6 +42,7 @@ def test_labelparsing():
         if seg.area >= 100:
             print "idx . area : ", seg .area
             print seg.binarized_segmented_image
+            resize_label_segment(seg.binarized_segmented_image)
             seg.display_segmented_image()
         # if seg.area >= 100:
             # print seg.area
@@ -56,7 +57,17 @@ def test_labelparsing():
     # image = core_parse.get_image_points()
     # cv2.imwrite("../../", image)
 
+def resize_label_segment(image):
+    size = 36,36
+    load_newimg = np.zeros((size))
+    i_offset = (36 - image.shape[0]) / 2
+    j_offset = (36 - image.shape[1]) / 2
+    for i in range(0, image.shape[0]):
+        for j in range(0, image.shape[1]):
+            load_newimg[i + i_offset,j + j_offset] = image[i,j]
 
+    for i in range(36):
+        print load_newimg[i]
 
 if __name__ == "__main__":
     # test_parse_image_segments()
