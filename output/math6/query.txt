@@ -1,0 +1,4 @@
+(bind ?result (run-query* q-6 0 1 2))
+(while (?result next)
+    (printout t "triangle : "(?result getInt p1) " " (?result getInt p2)" " (?result getInt p3)
+                ", area " (?result getInt v) crlf))

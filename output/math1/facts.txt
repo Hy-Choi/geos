@@ -1,0 +1,26 @@
+(deffacts problem-fact
+(line (id l1) (point1 0) (point2 1))
+(line (id l2) (point1 1) (point2 2))
+(line (id l3) (point1 0) (point2 2))
+(angle (id a1) (point1 2) (point2 1) (point3 0))
+(angle (id a2) (point1 0) (point2 1) (point3 2))
+(angle (id a3) (point1 1) (point2 0) (point3 2))
+(angle (id a4) (point1 2) (point2 0) (point3 1))
+(angle (id a5) (point1 0) (point2 2) (point3 1))
+(angle (id a6) (point1 1) (point2 2) (point3 0))
+(triangle (id p1) (point1 0) (point2 1) (point3 2) )
+)(defrule modify-line02
+ ?line <- (line(point1 0) (point2 2) )
+ => 
+ (modify ?line (value 4))
+)
+(defrule modify-line12
+ ?line <- (line(point1 1) (point2 2) )
+ => 
+ (modify ?line (value 10))
+)
+(defrule modify-angle120
+ ?angle <- (angle(point1 1) (point2 2) (point3 0) )
+ => 
+ (modify ?angle (degree 90))
+)

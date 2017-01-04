@@ -1,0 +1,54 @@
+(deffacts problem-fact
+(line (id l1) (point1 0) (point2 1))
+(line (id l2) (point1 1) (point2 2))
+(line (id l3) (point1 1) (point2 3))
+(line (id l4) (point1 2) (point2 3))
+(line (id l5) (point1 0) (point2 3))
+(line (id l6) (point1 0) (point2 2))
+(angle (id a1) (point1 3) (point2 0) (point3 2))
+(angle (id a2) (point1 1) (point2 0) (point3 3))
+(angle (id a3) (point1 2) (point2 0) (point3 3))
+(angle (id a4) (point1 2) (point2 3) (point3 0))
+(angle (id a5) (point1 0) (point2 1) (point3 2))
+(angle (id a6) (point1 3) (point2 1) (point3 0))
+(angle (id a7) (point1 1) (point2 0) (point3 2))
+(angle (id a8) (point1 0) (point2 3) (point3 1))
+(angle (id a9) (point1 0) (point2 2) (point3 3))
+(angle (id a10) (point1 1) (point2 2) (point3 0))
+(angle (id a11) (point1 2) (point2 0) (point3 1))
+(angle (id a12) (point1 3) (point2 0) (point3 1))
+(angle (id a13) (point1 3) (point2 2) (point3 0))
+(angle (id a14) (point1 2) (point2 1) (point3 0))
+(angle (id a15) (point1 0) (point2 2) (point3 1))
+(angle (id a16) (point1 0) (point2 1) (point3 3))
+(angle (id a17) (point1 1) (point2 3) (point3 0))
+(angle (id a18) (point1 0) (point2 3) (point3 2))
+(triangle (id p1) (point1 0) (point2 1) (point3 2) )
+(triangle (id p2) (point1 0) (point2 2) (point3 3) )
+(triangle (id p3) (point1 0) (point2 1) (point3 3) )
+(point-lies-on-line (id plol1) (point 3) (start-point 1) (end-point 2))
+)(defrule modify-line02
+ ?line <- (line(point1 0) (point2 2) )
+ => 
+ (modify ?line (value (sqrt 2)))
+)
+(defrule modify-line01
+ ?line <- (line(point1 0) (point2 1) )
+ => 
+ (modify ?line (value (sqrt 2)))
+)
+(defrule modify-angle230
+ ?angle <- (angle(point1 2) (point2 3) (point3 0) )
+ => 
+ (modify ?angle (degree 90))
+)
+(defrule modify-angle031
+ ?angle <- (angle(point1 0) (point2 3) (point3 1) )
+ => 
+ (modify ?angle (degree 90))
+)
+(defrule modify-line03
+ ?line <- (line(point1 0) (point2 3) )
+ => 
+ (modify ?line (value 1))
+)

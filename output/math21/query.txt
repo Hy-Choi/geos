@@ -1,0 +1,3 @@
+(bind ?result (run-query* q-21 1 2))
+(while (?result next)
+    (printout t "line : "(?result getInt p1) " " (?result getInt p2)  ", value " (?result getDouble v) crlf))
